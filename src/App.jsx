@@ -1,17 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import FreelancerPage from "./pages/FreelancerPage";
+import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <FreelancerPage />
-      <h1 className="text-MainTitle underline text-accent">Hello world</h1>
-    </>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold text-blue-600">Welcome to Test Page</h1>
+      <p className="mt-4">This is a simple test component</p>
+    </div>
   );
 }
 

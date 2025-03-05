@@ -1,66 +1,60 @@
-"use client";
+import React, { useState } from "react";
+import { GoSun } from "react-icons/go";
+import { FaRegBell, FaRegUserCircle } from "react-icons/fa";
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Bell, Sun, Moon, User } from "lucide-react";
-
-const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
-  const [language, setLanguage] = useState("en");
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex h-16 items-center justify-between bg-primary px-6 py-5 text-white border-b border-white/10">
-      <Link to="/" className="flex items-center text-xl font-bold">
-        <span className="text-white">JOB</span>
-        <span className="text-red-500">SEEK</span>
-      </Link>
+    <nav className="bg-primary w-full shadow-md">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        {/* Logo */}
+        <a href="#" className="flex items-center space-x-3">
+          <img src="src/assets/images/Logo3.png" className="md:h-8 h-4" alt="JobSeek Logo" />
+        </a>
 
-      <div className="flex items-center gap-6">
+        {/* Hamburger Menu Button */}
         <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="rounded-full p-2 hover:bg-white/10 transition-colors"
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden p-2 text-white rounded-lg focus:outline-none"
         >
-          {darkMode ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-        </button>
-
-        <button className="rounded-full p-2 hover:bg-white/10 transition-colors">
-          <Bell className="h-5 w-5" />
-        </button>
-
-        <div className="flex items-center gap-2 border-l border-r border-white/10 px-6"></div>
-        {/* Notification bell */}
-        <button className="rounded-full p-2 hover:bg-blue-800 transition-colors">
-          <Bell className="h-5 w-5" />
-        </button>
-
-        {/* Language selector */}
-        <div className="flex items-center gap-2 border-l border-r border-blue-800 px-6">
-          <button
-            onClick={() => setLanguage("en")}
-            className={`h-8 w-8 rounded border ${
-              language === "en" ? "bg-blue-800" : ""
-            } hover:bg-blue-800/60 transition-colors`}
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span className="text-sm">EN</span>
-          </button>
-          <button
-            onClick={() => setLanguage("km")}
-            className={`h-8 w-8 rounded border ${
-              language === "km" ? "bg-blue-800" : ""
-            } hover:bg-blue-800/60 transition-colors`}
-          >
-            <span className="text-sm">KH</span>
-          </button>
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+
+        {/* Navigation Links */}
+        <div
+          className={`w-full md:flex md:w-auto md:items-center ${isOpen ? "block" : "hidden"}`}
+        >
+          <ul className="flex flex-col md:flex-row md:space-x-6 bg-primary md:bg-transparent p-4 md:p-0">
+            <li>
+              <a href="#" className="text-white hover:text-secondary block py-2 px-3 md:p-0">
+                Notification
+              </a>
+            </li>
+          </ul>
         </div>
 
-        {/* User profile */}
-        <button className="flex items-center gap-2 rounded-full bg-white px-3 py-2 text-blue-900 hover:bg-blue-50 transition-colors">
-          <User className="h-5 w-5" />
-          <span className="text-sm font-medium">Admin</span>
-        </button>
+        {/* Right-side icons */}
+        <div className="flex items-center space-x-4">
+        <GoSun className="text-secondary text-[24px]" />
+        <FaRegBell className="text-secondary text-[24px]" />
+        </div>
+        <div className="flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
+            <img src="src/assets/images/England.png" alt="England Flag" className="w-[40px] h-[20px]" />
+            <img src="src/assets/images/Cambodia.png" alt="Cambodia Flag" className="w-[40px] h-[20px]" />
+          </div>
+          <FaRegUserCircle className="text-white text-[30px]" />
+        </div>
       </div>
-    </header>
+    </nav>
   );
-};
-
-export default Navbar;
+}

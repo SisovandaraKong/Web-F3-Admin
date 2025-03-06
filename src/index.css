@@ -2,6 +2,8 @@
 @import "flowbite/src/themes/default";
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   /* Colors */
@@ -37,3 +39,25 @@
   /* Container */
   --container-margin: 0 auto;
 }
+a.active {
+  color:#eab308 ;
+}
+
+a.pending {
+  animate: pulse 1s infinite;
+  color: #f9fafb;
+}
+
+a.transitioning {
+  /* css transition is running */
+}
+/* Apply Poppins for English */
+html[lang="en"] {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Apply Koh Santepheap for Khmer */
+html[lang="km"] {
+  font-family: 'Koh Santepheap', sans-serif;
+}
+

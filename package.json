@@ -11,14 +11,25 @@
     "git": "node -e \"const readline = require('readline'); const { exec } = require('child_process'); const rl = readline.createInterface({ input: process.stdin, output: process.stdout }); rl.question('Enter commit message: ', (message) => { rl.question('Enter branch name: ', (branch) => { exec(`git add . && git commit -m \\\"${message}\\\" && git push -u origin ${branch}`, (err, stdout, stderr) => { if (err) { console.error(`Error: ${err.message}`); } else { console.log(stdout); } rl.close(); }); }); });\""
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/roboto": "^5.2.5",
+    "@mui/icons-material": "^6.4.6",
+    "@mui/material": "^6.4.6",
+    "@mui/styled-engine-sc": "^6.4.6",
+    "@mui/x-charts": "^7.27.1",
     "@tailwindcss/vite": "^4.0.7",
+    "apexcharts": "^3.46.0",
     "flowbite": "^3.1.2",
+    "i18next": "^24.2.2",
     "lucide-react": "^0.476.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.1",
     "react-icons": "^5.5.0",
     "react-router": "^7.2.0",
     "react-router-dom": "^7.2.0",
+    "styled-components": "^6.1.15",
     "tailwindcss": "^4.0.7"
   },
   "devDependencies": {

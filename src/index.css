@@ -4,6 +4,9 @@
 @source "../node_modules/flowbite";
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  @apply transition-colors duration-200; /* Smooth theme transitions */
+}
 
 @theme {
   /* Colors */
